@@ -55,7 +55,8 @@ LABEL authors="longlivechief <chief@hackerhappyhour.com>, badsmoke <dockerhub@ba
 LABEL issues="github.com/OcotPrint/docker/issues"
 
 RUN groupadd --gid 1000 octoprint \
-  && useradd --uid 1000 --gid octoprint -G dialout --shell /bin/bash --create-home octoprint
+  && groupadd -f -r gpio \
+  && useradd --uid 1000 --gid octoprint -G dialout,gpio --shell /bin/bash --create-home octoprint
 
 #Install Octoprint, ffmpeg, and cura engine
 COPY --from=compiler /opt/venv /opt/venv
