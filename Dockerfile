@@ -47,8 +47,10 @@ RUN python -m virtualenv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /opt/venv
 RUN pip install .
-
-
+RUN pip install \
+	"https://github.com/OllisGit/OctoPrint-DisplayLayerProgress/releases/latest/download/master.zip" \
+	"https://github.com/StefanCohen/OctoPrint-Dashboard/archive/master.zip" \
+	"https://github.com/Kragrathea/OctoPrint-PrettyGCode/archive/master.zip"
 FROM python:${PYTHON_BASE_IMAGE} AS build
 LABEL description="The snappy web interface for your 3D printer"
 LABEL authors="longlivechief <chief@hackerhappyhour.com>, badsmoke <dockerhub@badcloud.eu>"
