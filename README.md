@@ -37,7 +37,9 @@ http://localhost:8080/ for mjpeg streamer interface
 
 Configure webcam with these URLs :
 http://localhost:8080/?action=stream for streaming
+
 http://localhost:8080/?action=snapshot
+
 
 You can display the log using `docker-compose logs -f`
 
