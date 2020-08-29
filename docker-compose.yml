@@ -2,11 +2,12 @@ version: '3.7'
 
 services:
   octoprint:
-    image: octoprint/octoprint
+    restart: always
+    build: .
     ports:
       - 5000:5000
-    # devices:
-    #  - /dev/ttyACM0:/dev/ttyACM0
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
     volumes:
      - octoprint:/home/octoprint
 
