@@ -32,7 +32,12 @@ vi docker-compose.yml
 docker-compose up -d
 ```
 
-You can then go to http://localhost:5000
+You can then go to http://localhost:5000 for octoprint
+http://localhost:8080/ for mjpeg streamer interface
+
+Configure webcam with these URLs :
+http://localhost:8080/?action=stream for streaming
+http://localhost:8080/?action=snapshot
 
 You can display the log using `docker-compose logs -f`
 
