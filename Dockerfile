@@ -66,6 +66,15 @@ COPY --from=compiler /opt/venv /opt/venv
 COPY --from=ffmpeg /opt /opt/ffmpeg
 COPY --from=cura-compiler /opt/build /opt/cura
 
+RUN apt-get install -y python3-dev libpng-dev
+RUN apt-get install -y  libjpeg-dev libfreetype6-dev
+RUN ln -s /usr/lib/i386-linux-gnu/libfreetype.so /usr/lib & \
+	ln -s /usr/lib/i386-linux-gnu/libjpeg.so /usr/lib & \
+	ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib
+WORKDIR /opt/venv
+RUN pip install --upgrade pip
+RUN pip install Pillow
+
 RUN chown -R octoprint:octoprint /opt/venv
 ENV PATH="/opt/venv/bin:/opt/ffmpeg:/opt/cura:$PATH"
 
