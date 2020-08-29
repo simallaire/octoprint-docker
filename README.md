@@ -1,4 +1,4 @@
-# OctoPrint-docker 
+# OctoPrint-docker + mjpg-streamer & octolapse
 
 ## Tags
 
